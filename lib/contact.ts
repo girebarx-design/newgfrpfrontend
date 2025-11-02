@@ -1,7 +1,7 @@
 // // lib/api/contact.ts (or utils/api/contact.ts)
 
 // const PAYLOAD_API_URL =
-//   process.env.NEXT_PUBLIC_PAYLOAD_API_URL || "http://localhost:3001/api";
+//   process.env.NEXT_PUBLIC_PAYLOAD_API_URL || "https://newgfrpbackendss.vercel.app/api";
 
 // export async function fetchContactSection() {
 //   try {
@@ -135,7 +135,7 @@
 // lib/api/contact.ts (or utils/api/contact.ts)
 
 const PAYLOAD_API_URL =
-  process.env.NEXT_PUBLIC_PAYLOAD_API_URL || "http://localhost:3001/api";
+  process.env.NEXT_PUBLIC_PAYLOAD_API_URL || "http://newgfrpbackendss.vercel.app/api";
 
 // Test function to check if the endpoint exists
 export async function testContactSubmissionsEndpoint() {
