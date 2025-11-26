@@ -846,7 +846,7 @@ export default function BlogSection({
   const featured = featuredBlog || allBlogs[0];
   const recentBlogs = allBlogs
     .filter((b: any) => b.id !== featured?.id)
-    .slice(0, 3);
+    // .slice(0, 3);
 
   if (!featured) return null;
 
