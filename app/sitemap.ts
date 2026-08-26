@@ -12,13 +12,13 @@ import { getPosts } from "@/lib/posts";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const fixed: MetadataRoute.Sitemap = [
-    { url: SITE_URL, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${SITE_URL}/machines`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/before-you-buy`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/start-a-plant`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${SITE_URL}/visit`, changeFrequency: "monthly", priority: 0.7 },
-  ].map((e) => ({ ...e, lastModified: now }));
+    { url: SITE_URL, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${SITE_URL}/machines`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/before-you-buy`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/start-a-plant`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE_URL}/visit`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+  ];
 
   const machines: MetadataRoute.Sitemap = MACHINES.map((m) => ({
     url: `${SITE_URL}/machines/${m.slug}`,
