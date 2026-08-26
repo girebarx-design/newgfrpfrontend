@@ -1,83 +1,38 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
+import { MACHINES } from "@/content/site";
+import { getPosts } from "@/lib/posts";
 
-const BACKEND_URL =
-  process.env.NEXT_PUBLIC_PAYLOAD_URL || "https://newgfrpbackend.vercel.app";
-const FRONTEND_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-
+/**
+ * Built from the real route list. The previous sitemap advertised
+ * /blogs/<slug> (the route is /blog/<slug>), /products/<slug> and
+ * /about/<slug> (neither exists) and /faq (no such page), while omitting the
+ * two pages that actually had content.
+ */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Fetch blogs
-  const blogsRes = await fetch(`${BACKEND_URL}/api/blogs?limit=1000`, {
-    next: { revalidate: 3600 }, // Revalidate every hour
-  });
-  const blogsData = await blogsRes.json();
+  const now = new Date();
+  const fixed: MetadataRoute.Sitemap = [
+    { url: SITE_URL, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${SITE_URL}/machines`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/before-you-buy`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/start-a-plant`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE_URL}/visit`, changeFrequency: "monthly", priority: 0.7 },
+  ].map((e) => ({ ...e, lastModified: now }));
 
-  // Fetch products
-  const productsRes = await fetch(
-    `${BACKEND_URL}/api/product-section?limit=1000`,
-    {
-      next: { revalidate: 3600 },
-    }
-  );
-  const productsData = await productsRes.json();
-
-  // Fetch about pages
-  const aboutRes = await fetch(`${BACKEND_URL}/api/about?limit=1000`, {
-    next: { revalidate: 3600 },
-  });
-  const aboutData = await aboutRes.json();
-
-  // Static pages
-  const staticPages = [
-    {
-      url: FRONTEND_URL,
-      lastModified: new Date(),
-      changeFrequency: "daily" as const,
-      priority: 1.0,
-    },
-    {
-      url: `${FRONTEND_URL}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      url: `${FRONTEND_URL}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
-    {
-      url: `${FRONTEND_URL}/faq`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
-  ];
-
-  // Blog pages
-  const blogPages = blogsData.docs.map((blog: any) => ({
-    url: `${FRONTEND_URL}/blogs/${blog.slug}`,
-    lastModified: new Date(blog.updatedAt),
-    changeFrequency: "weekly" as const,
+  const machines: MetadataRoute.Sitemap = MACHINES.map((m) => ({
+    url: `${SITE_URL}/machines/${m.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
     priority: 0.8,
   }));
 
-  // Product pages
-  const productPages = productsData.docs.map((product: any) => ({
-    url: `${FRONTEND_URL}/products/${product.slug}`,
-    lastModified: new Date(product.updatedAt),
-    changeFrequency: "weekly" as const,
-    priority: 0.7,
-  }));
-
-  // About pages
-  const aboutPages = aboutData.docs.map((item: any) => ({
-    url: `${FRONTEND_URL}/about/${item.slug}`,
-    lastModified: new Date(item.updatedAt),
-    changeFrequency: "monthly" as const,
+  const posts: MetadataRoute.Sitemap = (await getPosts()).map((p) => ({
+    url: `${SITE_URL}/blog/${encodeURIComponent(p.slug)}`,
+    lastModified: new Date(p.date),
+    changeFrequency: "yearly",
     priority: 0.6,
   }));
 
-  return [...staticPages, ...blogPages, ...productPages, ...aboutPages];
+  return [...fixed, ...machines, ...posts];
 }

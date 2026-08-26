@@ -1,22 +1,30 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: false,
-  eslint: {
-    ignoreDuringBuilds: true,
+  reactStrictMode: true,
+
+  // The old site's routes were singular and inconsistent with both the nav and
+  // the sitemap. These keep any existing link or index entry alive instead of
+  // handing Google a wall of 404s.
+  async redirects() {
+    return [
+      { source: "/product", destination: "/machines", permanent: true },
+      { source: "/products", destination: "/machines", permanent: true },
+      { source: "/products/:slug", destination: "/machines", permanent: true },
+      { source: "/resource", destination: "/before-you-buy", permanent: true },
+      { source: "/resources", destination: "/before-you-buy", permanent: true },
+      { source: "/machine", destination: "/machines", permanent: true },
+      { source: "/faq", destination: "/before-you-buy", permanent: true },
+      { source: "/about", destination: "/start-a-plant", permanent: true },
+      { source: "/about/:slug", destination: "/start-a-plant", permanent: true },
+      { source: "/contact", destination: "/visit", permanent: true },
+      { source: "/blogs", destination: "/blog", permanent: true },
+      { source: "/blogs/:slug", destination: "/blog/:slug", permanent: true },
+    ];
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+
   images: {
-    domains: [
-      "i.postimg.cc",
-      "cdn.prod.website-files.com",
-      "images.unsplash.com",
-      "composite-tech.com",
-      "127.0.0.1",
-      "gfrp-india.onrender.com",
-    ],
+    remotePatterns: [{ protocol: "https", hostname: "newgfrpbackend.vercel.app" }],
   },
 };
 
