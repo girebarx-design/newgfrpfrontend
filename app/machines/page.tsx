@@ -18,8 +18,8 @@ export default function Machines() {
         here="/machines" eyebrow="The machines"
         title="Five lines. One of them is probably yours."
         answer="Physical specification and what sits inside each line. Output figures and prices come with a conversation, not from a web page."
-        img="/img/coils.jpg" alt="Finished GFRP rebar coils at the Pithampur plant"
-        cap="Finished bar · Pithampur"
+        img="/img/line-drawing.jpg" alt="Composite Tech FRP rebar production line general arrangement drawing"
+        cap="CT4 line · general arrangement"
       >
         {MACHINES.map((m) => (
           <div className="mach" key={m.slug}>

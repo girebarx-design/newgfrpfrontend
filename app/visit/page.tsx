@@ -1,6 +1,7 @@
 import { Spread } from "@/components/Spread";
 import { Jsonld, breadcrumb } from "@/components/Jsonld";
-import { VISIT, CT_CONTACT } from "@/content/site";
+import { VISIT, CT_CONTACT, OUR_ADDRESS } from "@/content/site";
+import EnquiryForm from "@/components/EnquiryForm";
 import { WHATSAPP_NUMBER, WHATSAPP_TEXT } from "@/lib/site";
 
 export const metadata = {
@@ -39,6 +40,21 @@ export default function Visit() {
           <span>Message us on WhatsApp</span>
           <em>{WHATSAPP_NUMBER.slice(2)}</em>
         </a>
+
+        <div style={{ marginTop: 46, maxWidth: "44rem" }}>
+          <h2 className="grp">Or tell us where you are</h2>
+          <p style={{ fontSize: 15, color: "var(--dim)", fontWeight: 300 }}>
+            Five fields. It tells us enough to send you something useful rather than a brochure.
+          </p>
+          <EnquiryForm />
+        </div>
+
+        <div style={{ marginTop: 46, maxWidth: "44rem" }}>
+          <h2 className="grp">Where we are</h2>
+          <address className="addr" style={{ fontStyle: "normal" }}>
+            {OUR_ADDRESS.map((l) => <span key={l} style={{ display: "block" }}>{l}</span>)}
+          </address>
+        </div>
 
         <div style={{ marginTop: 46, maxWidth: "44rem" }}>
           <h2 className="grp">Don’t take our word for it. Ring the factory.</h2>

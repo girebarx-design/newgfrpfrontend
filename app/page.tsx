@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Nav, Foot } from "@/components/Chrome";
 import { Jsonld, organisation } from "@/components/Jsonld";
-import { HERO, FACTS, HOME_ROWS, COUNTRIES_NOTE } from "@/content/site";
+import { HERO, FACTS, HOME_ROWS, COUNTRIES_NOTE, BIAS } from "@/content/site";
 
 export const metadata = {
   title: "GFRP rebar production lines in India | GFRP India",
@@ -61,7 +61,14 @@ export default function Home() {
           ))}
         </section>
 
-        <p className="note" style={{ marginTop: 26 }}>{COUNTRIES_NOTE}</p>
+        <section className="body" style={{ paddingTop: 46, paddingBottom: 10 }}>
+          <h2 className="grp" style={{ marginTop: 0 }}>Why we are doing this</h2>
+          <p style={{ fontSize: 16.5, color: "var(--soft)", fontWeight: 300, maxWidth: "46rem", lineHeight: 1.7 }}>
+            {BIAS}
+          </p>
+        </section>
+
+        <p className="note">{COUNTRIES_NOTE}</p>
       </main>
       <Foot />
     </>

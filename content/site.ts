@@ -18,12 +18,12 @@ export const COUNTRIES_NOTE =
   "Composite-Tech report lines running in over 40 countries, including the USA, Spain and Mexico.";
 
 export const HOME_ROWS = [
-  { label: "The plant", title: "We run the line we sell",
-    body: "Six days a week in Pithampur. When it stops, our production stops." },
-  { label: "Before buying", title: "Eighteen tests for any line, ours included",
-    body: "Free, no email, also in Hindi." },
+  { label: "Our bias", title: "We want India making real GFRP, not lookalikes",
+    body: "We are not neutral and we would rather say why: every good line that starts here makes the whole industry harder to fake." },
+  { label: "Before buying", title: "Twenty checks for any line, ours included",
+    body: "We send the full list to anyone who asks. It names no brand and recommends no machine." },
   { label: "Verify us", title: "Ring the factory in Moldova yourself",
-    body: "Their number is on the visit page. So are owners of lines in India." },
+    body: "Their number is on the visit page. So are owners of lines running in India." },
 ];
 
 export const MACHINES = [
@@ -45,46 +45,55 @@ export const MACHINES = [
 ] as const;
 
 export const STATIONS = [
-  ["01","Creel","Roving feeds from the back of the line. How evenly it feeds decides whether the bar has a consistent section."],
-  ["02","Pre-heat and plasma","Roving is dried and surface-activated before it meets resin. Bond between fibre and matrix is won or lost here."],
-  ["03","Three-stage impregnation","Resin introduced in stages rather than one bath. Dry fibre inside a bar is a void, and voids are where attack starts."],
-  ["04","Wrap and surface","Helical wrap and sand coating applied before cure. Retrofitting this later is expensive."],
-  ["05","SWIR curing","Short-wave infrared passes through the glass and is absorbed by the resin, so the bar cures from the inside out."],
-  ["06","Two-stage cooling","Controlled air, then water. Cooling too fast locks stress into the bar."],
-  ["07","Caterpillar puller","Grips along a length rather than at points. This is what holds modulus where a roller puller does not."],
-  ["08","Cut or coil","To length, or wound. Cut length consistency is measured here."],
+  ["01","Creel","Roving feeds from racks at the back of the line. How evenly it feeds decides whether the bar holds a consistent section."],
+  ["02","Roving dryer","Drives moisture out before the fibre meets resin. Moisture at this point is a defect you cannot see until the bar is tested."],
+  ["03","Impregnation module","Resin introduced in stages rather than one bath. Dry fibre left inside a bar is a void, and voids are where alkali attack starts."],
+  ["04","Twisting and ribbing","Helical wrap and surface applied before cure. Whether rib distance can be changed, and stays synced to pulling speed, decides how much of your day goes on resetting the line."],
+  ["05","Curing · infrared booster","Short-wave infrared passes through the glass and is absorbed by the resin, so the bar begins curing from the inside out."],
+  ["06","Curing · tunnel kiln","Conventional curing follows the booster. The two together are the curing section, and the kiln is where heaters either hold 250 °C or fade."],
+  ["07","Cooling module","Controlled cooling. Too fast and you lock stress into the bar."],
+  ["08","Pulling device","Grips along a length rather than at points. This is what holds tolerance, and where you watch for slippage on a multi-bar run."],
+  ["09","Cutting device","To length, automatically. Manual measure means a man, a tape, and a variance you will argue about with customers."],
+  ["10","Winder","Coiled for despatch. Compact coils or large ones — large coils cost you more to ship, to every customer, for the life of the plant."],
 ] as const;
 
 export const MATERIALS_NOTE =
   "The lines also run basalt and carbon fibre, and epoxy, vinyl ester or polyester resin systems.";
 
 export const AUDIT_INTRO =
-  "One question before any of it: what are you building — a brand, or something to sell? Everything below gets stricter as the answer gets more ambitious.";
+  "Three questions about you first. They decide how strict the rest of this needs to be.";
+
+export const BUYER_CHECKS = [
+  ["Cheapest possible start, or a setup built to grow","One of those buys a machine. The other buys a plant. They are not the same purchase."],
+  ["A brand, or just something that produces","If you cannot say which, the machine will decide it for you."],
+  ["Do you intend to export, ever","Say yes now and the requirements change immediately. Say no later and you have lost nothing."],
+] as const;
 
 export const AUDIT = [
-  { group: "Cost of production", items: [
-    ["Sustained speed at your largest diameter","Not your smallest. Peak speed on a thin bar is marketing."],
-    ["Power per kilogram produced","Ask for the meter reading, not the connected load. Only one shows up on your bill."],
-    ["Time from power-on to first saleable metre","Time it yourself. Then multiply by two starts a day and 300 days."],
-    ["Startup scrap, weighed","In kilograms, on a scale, in front of you. Not a verbal figure."],
-    ["Diameter changeover time","You will run several sizes. This is the one that quietly eats a month."],
-    ["Steady-state scrap once the line settles","A different number from startup scrap, and the one that repeats every shift."],
+  { group: "See it working", items: [
+    ["Insist on a working line, not a demo unit","Your future depends on this one. A demo unit proves the machine can be switched on, nothing more."],
+    ["Watch production speed live for at least 30 minutes","Continuously. Not a burst at the fastest diameter while someone talks over it."],
+    ["Time the start of the line","Shift time lost at startup, and again after every stoppage, comes out of your month whether you count it or not."],
+    ["Scrap at start and during production","Both numbers. They are different, and the second one repeats every shift."],
   ]},
-  { group: "Quality", items: [
-    ["Tensile strength on bar from that run","Not from a sample they brought with them."],
-    ["Elastic modulus","50–60 GPa, or under 40. Designers size to deflection, so this decides who can use your bar."],
-    ["Diameter and weight per metre, 20 random bars","Work out the variation. High variation becomes your rejection rate."],
-    ["Cut length spread over 100 consecutive cuts","Record the spread, not the average."],
-    ["Surface consistency across the run","Sand coating and helical wrap pitch, start to finish."],
-    ["Third-party report against IS 18256","On bar produced during that run, not a certificate from last year."],
+  { group: "How the line is built", items: [
+    ["Is there a preheater to remove moisture","Moisture in the roving before impregnation is a defect you cannot see until the bar is tested."],
+    ["Do the heaters hold temperature","Not whether they reach it. Whether they hold it."],
+    ["Can the heaters sustain 250 °C and above","Cheap heaters fade the moment you push them, and undercured bar fails on the bench."],
+    ["Automatic cutting to length, or manual measure","Manual measure is a man, a tape and a variance you will be arguing about with customers."],
+    ["Can ribbing distance be changed, and is it synced","If it is not synced you are correcting it by hand for the life of the plant."],
+    ["Does rib distance need readjusting every time pulling speed changes","This is the question most people never think to ask, and it decides how much of your day is spent resetting the line."],
   ]},
-  { group: "Uptime", items: [
-    ["Do the heaters hold above 250 °C","Or do they fade the moment you push them."],
-    ["Pulling speed across diameters, and slippage","Ask how often the rollers get replaced, and what that costs."],
-    ["In sync, or every parameter set by hand","Recipe memory, or an operator rebuilding settings at each changeover."],
-    ["Wear-part life in writing","Die, puller pads, blades, heaters. In hours or metres, never “long life”."],
-    ["Spares held where, delivered in how long","And the service engineer’s name."],
-    ["Does your supplier manufacture, or only sell","Will they hand you a process, or a machine and good luck."],
+  { group: "What it costs to run", items: [
+    ["Power consumption","A 10 kW difference is roughly ₹10 lakh a year. Ask for the meter reading, not the connected load."],
+    ["Slippage when running multiple bars at once","Watch it with your own eyes on a multi-bar run. Slippage is lost metres and inconsistent bar."],
+    ["How often the pulling-side rollers need changing","And what a set costs. Ask for it in writing."],
+    ["Large coils or compact coils","Large coils cost you more to ship to every customer, for the life of the plant."],
+    ["Your cost of production, fully loaded","Rent, labour, electricity, interest, depreciation. Your focus is the lowest cost of production, not the lowest cost machine."],
+  ]},
+  { group: "Who you are buying from", items: [
+    ["Tensile strength of the bar their line produces","Tested on bar from the run you watched, not a sample they brought with them."],
+    ["Can the supplier actually guide you on manufacturing","Many machine makers are copying a design and do not understand the technicalities. It matters on the day something fails and you need them to know why."],
   ]},
 ] as const;
 
@@ -112,14 +121,25 @@ export const VISIT = [
 ] as const;
 
 // Published by Composite-Tech at composite-tech.com/contacts
+// Moldova numbers published by Composite-Tech at composite-tech.com/contacts
 export const CT_CONTACT = [
-  ["Moldova","+373 60 400 669"],
-  ["Austria","+43 677 644 03208"],
-  ["United Kingdom","+44 7746 190907"],
-  ["WhatsApp","+373 60 400 669 · +373 61 010 889"],
-  ["Email","info@composite-tech.com"],
-  ["Address","Chișinău, str. Eugen Coca 41g, Moldova"],
+  ["India · GFRP India","+91 95300 13034"],
+  ["India · email","partner@gfrpindia.com"],
+  ["Moldova · Composite-Tech","+373 60 400 669"],
+  ["Moldova · WhatsApp","+373 61 010 889"],
+  ["Moldova · email","info@composite-tech.com"],
+  ["Moldova · address","Chișinău, str. Eugen Coca 41g"],
 ] as const;
 
+export const OUR_ADDRESS = [
+  "GFRP India — Credific Ventures Private Limited",
+  "[PLOT / UNIT NUMBER], Sector 3, Pithampur",
+  "Dhar district, Madhya Pradesh [PIN]",
+  "partner@gfrpindia.com · +91 95300 13034",
+];
+
 export const DISCLOSURE =
-  "GFRPINDIA is run by Credific Ventures Private Limited, Pithampur, Madhya Pradesh. We make RebarX GFRP rebar and we are the India partner for Composite Tech machine lines. We picked this line for our own factory before we ever sold one.";
+  "GFRP India is run by Credific Ventures Private Limited, Pithampur, Madhya Pradesh. We make RebarX GFRP rebar and we are the India partner for Composite Tech machine lines. We picked this line for our own factory before we ever sold one.";
+
+export const BIAS =
+  "We have a bias and it is worth stating plainly. We want India making real GFRP rebar. There is already too much material in this market that looks like GFRP and does not behave like it, and every plant that starts on a line which cannot hold tolerance makes that worse — for the industry, and for whoever ends up with that bar in their slab. So we would rather help you set up a line that produces material an engineer can rely on than sell you a machine you will resent.";
