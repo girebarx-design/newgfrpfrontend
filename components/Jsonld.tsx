@@ -12,16 +12,35 @@ export function Jsonld({ data }: { data: Record<string, unknown> }) {
 
 export const organisation = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness"],
+  "@id": `${SITE_URL}/#organisation`,
   name: SITE_NAME,
   legalName: ORG_LEGAL_NAME,
   url: SITE_URL,
+  logo: `${SITE_URL}/img/og.jpg`,
+  image: `${SITE_URL}/img/og.jpg`,
+  telephone: "+91-95300-13034",
+  email: "partner@gfrpindia.com",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Plot 8B & 8C, Sector 3, Pithampur",
     addressLocality: "Pithampur",
     addressRegion: "Madhya Pradesh",
+    postalCode: "454775",
     addressCountry: "IN",
   },
+  areaServed: { "@type": "Country", name: "India" },
+  sameAs: [
+    "https://www.youtube.com/@compositetechrebar66",
+    "https://composite-tech.com",
+    "https://rebarx.in",
+  ],
+  knowsAbout: [
+    "GFRP rebar manufacturing",
+    "Pultrusion production lines",
+    "IS 18256",
+    "Composite reinforcement",
+  ],
   description:
     "India partner for Composite Tech GFRP rebar production lines. We manufacture GFRP rebar in Pithampur on the same line we sell.",
 };

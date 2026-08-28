@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Nav, Foot } from "@/components/Chrome";
+import { Jsonld, organisation } from "@/components/Jsonld";
 
 export function Spread({
   here, eyebrow, title, answer, img, alt, cap, children, note,
@@ -9,6 +10,7 @@ export function Spread({
 }) {
   return (
     <>
+      <Jsonld data={organisation} />
       <Nav here={here} />
       <main>
         <section className="sp">
