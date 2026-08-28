@@ -133,8 +133,8 @@ export const CT_CONTACT = [
 
 export const OUR_ADDRESS = [
   "GFRP India — Credific Ventures Private Limited",
-  "[PLOT / UNIT NUMBER], Sector 3, Pithampur",
-  "Dhar district, Madhya Pradesh [PIN]",
+  "Plot 8B & 8C, Sector 3, Pithampur",
+  "Dhar district, Madhya Pradesh 454775",
   "partner@gfrpindia.com · +91 95300 13034",
 ];
 
