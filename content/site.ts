@@ -20,7 +20,7 @@ export const COUNTRIES_NOTE =
 export const HOME_ROWS = [
   { label: "Our bias", title: "We want India making real GFRP, not lookalikes",
     body: "We are not neutral and we would rather say why: every good line that starts here makes the whole industry harder to fake." },
-  { label: "Before buying", title: "Twenty checks for any line, ours included",
+  { label: "Before buying", title: "Seventeen checks for any line, ours included",
     body: "We send the full list to anyone who asks. It names no brand and recommends no machine." },
   { label: "Verify us", title: "Ring the factory in Moldova yourself",
     body: "Their number is on the visit page. So are owners of lines running in India." },

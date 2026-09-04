@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import HeroVideo from "@/components/HeroVideo";
 import { Nav, Foot } from "@/components/Chrome";
 import { Jsonld, organisation } from "@/components/Jsonld";
 import { HERO, FACTS, HOME_ROWS, COUNTRIES_NOTE, BIAS } from "@/content/site";
@@ -18,14 +18,7 @@ export default function Home() {
       <Nav here="/" />
       <main>
         <section className="lat">
-          <Image
-            className="shot"
-            src="/img/line-pithampur.jpg"
-            alt="Composite Tech production line running at the Pithampur plant"
-            width={2049}
-            height={1537}
-            priority
-          />
+          <HeroVideo />
           <div className="veil" />
           <div className="say">
             <span className="k">{HERO.eyebrow}</span>
