@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Composite Tech GFRP rebar production lines, represented in India by people who run one. Machine specifications, an 18-point audit for any line, and what it takes to start a plant.",
+    "Composite Tech GFRP rebar production lines, represented in India by people who run one. Machine specifications, a 17-point audit for any line, and what it takes to start a plant.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

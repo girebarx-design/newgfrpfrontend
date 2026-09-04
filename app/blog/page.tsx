@@ -21,8 +21,8 @@ export default async function Blog() {
         here="/blog" eyebrow="Writing"
         title="What we have learned running the line."
         answer="Notes on making GFRP rebar in India — process, standards, and things that only show up once a plant is running."
-        img="/img/bar-surface.jpg" alt="Close view of helically wrapped GFRP bar surface"
-        cap="Bar surface · helical wrap"
+        img="/img/control-panel.jpg" alt="Line control panel at the Pithampur plant"
+        cap="Line controls · Pithampur"
       >
         <div className="posts">
           {posts.map((p) => (

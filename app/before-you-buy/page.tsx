@@ -4,9 +4,9 @@ import { AUDIT, AUDIT_INTRO, BUYER_CHECKS } from "@/content/site";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "The 18-point line audit — run it on any GFRP rebar machine",
+  title: "The 17-point line audit — run it on any GFRP rebar machine",
   description:
-    "Eighteen tests to run on any GFRP rebar production line, ours included. Grouped by cost of production, quality and uptime. Names no brand, recommends no machine.",
+    "Seventeen tests to run on any GFRP rebar production line, ours included. Grouped by what to watch, how it is built, what it costs to run, and who you buy from. Names no brand, recommends no machine.",
   alternates: { canonical: "/before-you-buy" },
 };
 
@@ -30,7 +30,7 @@ export default function Audit() {
       <Jsonld data={breadcrumb([["Home","/"],["Before you buy","/before-you-buy"]])} />
       <Spread
         here="/before-you-buy" eyebrow="Before you buy any line"
-        title="Eighteen tests. Run them on ours too."
+        title="Seventeen tests. Run them on ours too."
         answer="Grouped the way a buyer actually thinks: what it costs to run, whether the bar passes, and whether the line keeps going."
         img="/img/line-drawing.jpg" alt="Composite Tech production line general arrangement drawing"
         cap="What you are inspecting"

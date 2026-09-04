@@ -44,7 +44,7 @@ export default async function Model({ params }: { params: Promise<{ model: strin
       <Jsonld data={breadcrumb([["Home","/"],["Machines","/machines"],[m.name,`/machines/${m.slug}`]])} />
       <Spread
         here="/machines" eyebrow={m.role} title={m.name} answer={m.blurb}
-        img="/img/control-panel.jpg" alt={`Drive readout on the ${m.name} line`}
+        img="/img/line-detail.jpg" alt={`Composite Tech ${m.name} line at Pithampur`}
         cap="Drive readout · mid-run"
       >
         <div className="specs">
@@ -63,7 +63,7 @@ export default async function Model({ params }: { params: Promise<{ model: strin
         </div>
 
         <p style={{ marginTop: 38 }}>
-          <Link className="lnk" href="/before-you-buy">Comparing this against a cheaper line? Run these 18 tests →</Link>
+          <Link className="lnk" href="/before-you-buy">Comparing this against a cheaper line? Run these 17 tests →</Link>
         </p>
       </Spread>
     </>

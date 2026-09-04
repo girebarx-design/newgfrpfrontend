@@ -7,7 +7,7 @@ import { HERO, FACTS, HOME_ROWS, COUNTRIES_NOTE, BIAS } from "@/content/site";
 export const metadata = {
   title: "GFRP rebar production lines in India | GFRP India",
   description:
-    "We picked this Composite Tech line for our own factory in Pithampur before we ever sold one. Machine detail, an 18-point audit for any line, and what starting a plant actually takes.",
+    "We picked this Composite Tech line for our own factory in Pithampur before we ever sold one. Machine detail, a 17-point audit for any line, and what starting a plant actually takes.",
   alternates: { canonical: "/" },
 };
 

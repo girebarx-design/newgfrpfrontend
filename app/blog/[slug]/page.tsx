@@ -48,7 +48,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         here="/blog"
         eyebrow={new Date(p.date).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
         title={p.title} answer={p.summary}
-        img="/img/bar-surface.jpg" alt="GFRP bar surface" cap="Bar surface · helical wrap"
+        img="/img/control-panel.jpg" alt="Line control panel at the Pithampur plant" cap="Line controls · Pithampur"
       >
         <article className="prose">
           {p.body.length === 0 ? (

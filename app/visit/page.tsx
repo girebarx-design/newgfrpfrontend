@@ -20,8 +20,8 @@ export default function Visit() {
         here="/visit" eyebrow="Visit"
         title="Come and stand next to it."
         answer="Four hours of continuous production, your diameter. We would rather you measured than took our word for it."
-        img="/img/coils.jpg" alt="Finished GFRP rebar coils at the Pithampur plant"
-        cap="Finished bar · Pithampur"
+        img="/img/store.jpg" alt="Raw material store at the Pithampur plant"
+        cap="Raw material store · Pithampur"
       >
         <div className="lst">
           {VISIT.map(([lab, t, d]) => (
