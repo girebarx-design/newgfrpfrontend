@@ -32,8 +32,8 @@ export default function Audit() {
         here="/before-you-buy" eyebrow="Before you buy any line"
         title="Seventeen tests. Run them on ours too."
         answer="Grouped the way a buyer actually thinks: what it costs to run, whether the bar passes, and whether the line keeps going."
-        img="/img/line-drawing.jpg" alt="Composite Tech production line general arrangement drawing"
-        cap="What you are inspecting"
+        img="/img/lab-test.jpg" alt="GFRP rebar tensile test data, Composite Tech"
+        cap="Test data, not our word for it"
       >
         <p style={{ fontSize: 15.5, color: "var(--soft)", fontWeight: 300, maxWidth: "48rem", marginBottom: 8 }}>
           {AUDIT_INTRO}
