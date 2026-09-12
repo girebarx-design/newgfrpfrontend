@@ -7,6 +7,7 @@ export type Post = {
   summary: string;
   date: string;      // ISO
   body: Block[];
+  img?: { src: string; alt: string; cap: string };
 };
 
 /**

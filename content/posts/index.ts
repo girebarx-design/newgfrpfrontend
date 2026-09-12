@@ -6,6 +6,7 @@ export const posts: Post[] = [
     title: "IS 18256:2023: what it actually requires from your production line",
     summary: "A plain read of India's GFRP rebar standard and the stations on a production line that decide whether your bar can pass it.",
     date: "2026-09-12",
+    img: { src: "/img/lab-test.jpg", alt: "Tension, flexural, and torsion test results on GFRP rebar", cap: "Lab testing · tension, flexural, torsion" },
     body: [
       { t: "p", x: "IS 18256:2023 is the Bureau of Indian Standards specification for solid round GFRP bars used in concrete reinforcement, and IS 18255:2023 sets out the test methods that go with it. Together they replaced the situation that existed before them, where every buyer wrote their own tender clause and every supplier answered it differently. BIS certification against IS 18256 is mandatory for anyone selling these bars in India, which means the ISI mark and a valid CM/L number, and that requirement does not stop at the trading company — it reaches back to the line that made the bar." },
       { t: "h", x: "What the standard is actually checking" },
@@ -25,6 +26,7 @@ export const posts: Post[] = [
     title: "How GFRP rebar is actually made",
     summary: "A walk down the line from creel to cut, and what goes wrong at each station.",
     date: "2026-08-25",
+    img: { src: "/img/line-overview.jpg", alt: "Full GFRP pultrusion line layout, creel to winder", cap: "The line, creel to winder" },
     body: [
       { t: "p", x: "A production line looks like one machine but it is really eight stations in a row, and each one can spoil what the previous one did. That is why a four-hour run tells you more about a machine than any specification sheet." },
       { t: "h", x: "The creel" },
