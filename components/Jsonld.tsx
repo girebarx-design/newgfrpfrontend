@@ -1,4 +1,5 @@
 import { SITE_URL, SITE_NAME, ORG_LEGAL_NAME } from "@/lib/site";
+import { OUR_COORDS } from "@/content/site";
 
 /** Structured data. The old site emitted none, so nothing could be cited. */
 export function Jsonld({ data }: { data: Record<string, unknown> }) {
@@ -29,6 +30,7 @@ export const organisation = {
     postalCode: "454775",
     addressCountry: "IN",
   },
+  geo: { "@type": "GeoCoordinates", latitude: OUR_COORDS.lat, longitude: OUR_COORDS.lng },
   areaServed: { "@type": "Country", name: "India" },
   sameAs: [
     "https://www.youtube.com/@compositetechrebar66",

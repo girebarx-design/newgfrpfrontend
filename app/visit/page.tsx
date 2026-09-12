@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Nav, Foot } from "@/components/Chrome";
 import { Jsonld, organisation, breadcrumb } from "@/components/Jsonld";
-import { VISIT, CT_CONTACT, OUR_ADDRESS } from "@/content/site";
+import { VISIT, CT_CONTACT, OUR_ADDRESS, OUR_COORDS } from "@/content/site";
 import EnquiryForm from "@/components/EnquiryForm";
 import { WHATSAPP_NUMBER, WHATSAPP_TEXT } from "@/lib/site";
 
@@ -57,7 +57,7 @@ export default function Visit() {
             ))}
           </div>
 
-          <div style={{ marginTop: 46, maxWidth: "44rem" }}>
+          <div style={{ marginTop: 46, maxWidth: "64rem" }}>
             <h2 className="grp">Where we are</h2>
             <div className="visitPlace">
               <Image
@@ -69,6 +69,21 @@ export default function Visit() {
                 {OUR_ADDRESS.map((l) => <span key={l} style={{ display: "block" }}>{l}</span>)}
               </address>
             </div>
+            <div className="visitMap">
+              <iframe
+                src={`https://www.google.com/maps?q=${OUR_COORDS.lat},${OUR_COORDS.lng}&output=embed`}
+                title="GFRP India plant location, Pithampur"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <a
+              className="lnk" style={{ marginTop: 14 }}
+              href={`https://www.google.com/maps/dir/?api=1&destination=${OUR_COORDS.lat},${OUR_COORDS.lng}`}
+              target="_blank" rel="noopener"
+            >
+              Get directions →
+            </a>
           </div>
 
           <div style={{ marginTop: 46, maxWidth: "44rem" }}>

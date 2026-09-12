@@ -138,6 +138,8 @@ export const OUR_ADDRESS = [
   "partner@gfrpindia.com · +91 95300 13034",
 ];
 
+export const OUR_COORDS = { lat: 22.620868440974593, lng: 75.60417733762182 };
+
 export const DISCLOSURE =
   "GFRP India is run by Credific Ventures Private Limited, Pithampur, Madhya Pradesh. We make RebarX GFRP rebar and we are the India partner for Composite Tech machine lines. We picked this line for our own factory before we ever sold one.";
 
