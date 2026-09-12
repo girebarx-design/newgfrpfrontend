@@ -94,8 +94,7 @@ a:hover{color:#FF9052}
 .visitHero{padding-top:64px}
 .formCard{background:var(--steel);border:1px solid var(--line);padding:24px 26px}
 .visitPlace{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 40px;align-items:start}
-.visitPlace img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
-.visitMap{margin-top:26px;aspect-ratio:16/7;border:1px solid var(--line);overflow:hidden}
+.visitMap{aspect-ratio:4/3;border:1px solid var(--line);overflow:hidden}
 .visitMap iframe{width:100%;height:100%;border:0;filter:grayscale(.3) invert(.92) contrast(.9)}
 @media (max-width:700px){
   .visitPlace{grid-template-columns:1fr;gap:22px 0}
