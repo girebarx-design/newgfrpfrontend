@@ -89,7 +89,7 @@ a:hover{color:#FF9052}
   background:linear-gradient(transparent,rgba(8,9,11,.9));font-family:var(--font-mono),monospace;
   font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#C3C8CF}
 
-.body{padding:52px 62px 90px;max-width:80rem}
+.body{padding:52px 62px 90px;max-width:80rem;margin:0 auto}
 .lst{display:grid;grid-template-columns:120px minmax(0,1fr);gap:0 34px}
 .sec{font-family:var(--font-mono),monospace;font-size:9.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--o);padding-top:11px}
