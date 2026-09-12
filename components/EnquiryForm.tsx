@@ -62,7 +62,7 @@ export default function EnquiryForm() {
         </div>
       </fieldset>
 
-      <label><span>Anything else (optional)</span><textarea name="message" rows={3} /></label>
+      <label><span>Anything else (optional)</span><textarea name="message" rows={2} /></label>
 
       <button className="submit" type="submit" disabled={state === "sending"}>
         {state === "sending" ? "Sending…" : "Send enquiry"}
