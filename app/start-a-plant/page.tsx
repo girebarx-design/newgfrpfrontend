@@ -17,8 +17,8 @@ export default function Start() {
         here="/start-a-plant" eyebrow="Start a plant"
         title="This business is not for everyone."
         answer="A shed, a sanctioned power connection, and about eighteen months before the plant pays for itself. If one of the three is missing, wait."
-        img="/img/store.jpg" alt="Raw material store at the Pithampur plant"
-        cap="Raw material store · Pithampur"
+        img="/img/finished-coils.jpg" alt="Finished GFRP rebar coils stacked at the Pithampur plant"
+        cap="Finished coils · Pithampur"
       >
         <div className="lst">
           {START.map(([t, d], i) => (
