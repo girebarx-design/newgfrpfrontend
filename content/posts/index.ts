@@ -2,6 +2,27 @@ import type { Post } from "../../lib/posts";
 
 export const posts: Post[] = [
   {
+    slug: "what-decides-gfrp-rebar-plant-economics",
+    title: "What actually decides whether a GFRP rebar line makes money in India",
+    summary: "The brochure lists diameter range and bars per run — the numbers that decide whether the plant pays for itself are six operating factors the brochure never mentions.",
+    date: "2026-09-19",
+    body: [
+      { t: "p", x: "A spec sheet tells you how many bars a line runs at once and what diameter range it covers. It does not tell you whether the line makes money, because that answer sits somewhere the spec sheet never looks: how long the line takes to warm up, how much bar gets scrapped before it settles, how often you change diameter in a month, and how many people you need standing at it every shift. None of these show up in a brochure comparison, and all of them show up on the electricity bill and the material invoice by the third month of running the plant." },
+      { t: "h", x: "Cold start costs you twice a day, every day" },
+      { t: "p", x: "The die and the curing section need time to reach and hold their set temperature. Until they do, the bar coming off the line is out of spec — not visibly, but on the properties that matter, which is why it gets scrapped or downgraded rather than sold. That cost repeats at every cold start, and a plant running two shifts starts cold at least twice a day. Multiply the minutes lost per start by two starts and by roughly three hundred working days, and cold-start time turns out to be a bigger number than most buyers expect when they are only asking about diameter range." },
+      { t: "p", x: "Time it yourself if you can, on a working line, not a demo unit that was already warm before you arrived." },
+      { t: "h", x: "Startup scrap and steady-state scrap are two different numbers" },
+      { t: "p", x: "Startup scrap is the material wasted while the line is still stabilizing after a cold start or a diameter change. Steady-state scrap is the rate once the line has settled and is running at speed. Suppliers sometimes quote one and let a buyer assume it covers both — it does not, and the gap between them is real fibre and resin you paid for and then paid again to dispose of. Ask for both numbers, weighed in front of you during a run, not estimated from a datasheet." },
+      { t: "h", x: "Diameter changeovers are the cost nobody counts until the invoice" },
+      { t: "p", x: "Most Indian plants are not running one diameter all year. A line rated for 3–20 mm bar is being asked to move across that range as orders come in, and every move means resetting the ribbing distance, re-syncing it to pulling speed, and sometimes re-tuning the die. None of that is instant. Count how many changeovers you actually run in a typical month and multiply by the time each one costs, and changeover time frequently outweighs the difference between two machines' rated running speed — the number everyone compares first." },
+      { t: "h", x: "Power per kilogram, not the number on the nameplate" },
+      { t: "p", x: "Connected load and actual draw are different things, and only actual draw shows up on the electricity bill. Ask for a meter reading taken during a real run, not the rated capacity from the panel. A 10 kW difference between two lines works out to roughly ₹10 lakh a year at typical industrial tariffs — enough to change which machine is actually cheaper once you run the numbers past the purchase price." },
+      { t: "h", x: "Manual stations are an availability problem before they are a wage problem" },
+      { t: "p", x: "Every station on a line that still needs a person standing at it — measuring, cutting, watching for slippage — is a station where output depends on someone showing up and staying trained. In most of India that is harder to solve than the wage itself: a plant running three manual stations across two shifts needs six people who know what they are doing, and losing one mid-run costs more in stopped line time than the salary difference between more and fewer manual stations ever would. Automatic cutting and synced ribbing are not conveniences — they are fewer points where the plant's output depends on someone else's Monday morning." },
+      { t: "p", x: "None of these six factors appear on a spec comparison, which is exactly why they are worth asking about before the order is placed. The machine that looks cheaper on the first page is not the same question as the machine that costs less to run for the next ten years — and the second question is the one that decides whether the plant actually pays for itself." },
+    ],
+  },
+  {
     slug: "is-18256-what-it-actually-requires-from-your-line",
     title: "IS 18256:2023: what it actually requires from your production line",
     summary: "A plain read of India's GFRP rebar standard and the stations on a production line that decide whether your bar can pass it.",
