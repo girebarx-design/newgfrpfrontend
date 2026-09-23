@@ -2,6 +2,25 @@ import type { Post } from "../../lib/posts";
 
 export const posts: Post[] = [
   {
+    slug: "why-cheap-small-gfrp-machines-lose-money",
+    title: "Why so many GFRP rebar manufacturers struggle — and it usually traces back to the machine",
+    summary: "A cheap or undersized production line does not lower your overheads, only your output, which means the same fixed costs land on far fewer kilograms and you are underpriced in the market before your first sale.",
+    date: "2026-09-22",
+    body: [
+      { t: "p", x: "Most new GFRP manufacturers in India fail the same way, and it rarely shows up as a single bad decision. It shows up as a slow realisation, six or eight months in, that the plant cannot price its bar anywhere near what the market is paying and still cover its own bills. The usual explanation people reach for is demand, or competition, or a slow ramp-up. The actual cause is almost always sitting on the shop floor: a machine bought to minimise the opening cheque, on a line small enough that its output can never carry the overheads a plant needs regardless of size." },
+      { t: "h", x: "Overheads do not shrink with the machine" },
+      { t: "p", x: "A plant needs a shed, a sanctioned power connection, a minimum crew per shift, working capital, interest on whatever was borrowed, and basic administration and compliance — and almost none of that scales down just because the line is smaller or cheaper. A two-bar line and a six-bar line need broadly the same shed, roughly the same number of people watching the process, and a power connection sized for the plant's ambitions rather than its first order. The cost of keeping the gate open every month is close to fixed. What changes with the machine is how much bar comes out to pay for it." },
+      { t: "h", x: "The same overhead spread over far less bar" },
+      { t: "p", x: "This is the arithmetic that decides whether a plant survives, and it is simple enough to do on paper before you buy anything. Take a plant's monthly overhead and divide it by the tonnage the line actually produces in a month. A six-bar line running steadily can carry that overhead over two or three times the tonnage a two-bar line manages, which means the same rupee of rent and salary and interest lands on a much smaller cost-per-kilogram on the bigger line. A buyer who chose the cheaper machine to save on the purchase price ends up paying for that choice every month for the life of the plant, on every kilogram they sell, not once at the time of purchase." },
+      { t: "h", x: "Cheap machines lose capacity twice, not once" },
+      { t: "p", x: "A small line already produces less. A cheap one usually produces less than its rated output too, because the corners cut to hit a low price — heaters that cannot hold temperature, pullers that slip on multi-bar runs, no synced ribbing, manual cutting — show up as scrap, rework, and stoppages that eat into the tonnage the line was supposed to deliver. So the plant is not just spreading fixed overhead over a smaller number, it is spreading it over a smaller number than the spec sheet promised. Both effects push the same direction, and together they can put a plant's real cost of production well above what the machine's rated capacity suggested when it was bought." },
+      { t: "h", x: "Why this makes a plant uncompetitive from day one" },
+      { t: "p", x: "None of this is visible until the plant is already running and quoting against other suppliers. A competitor running a larger, better-built line at similar overhead is producing bar at a meaningfully lower cost per kilogram, and can price accordingly and still make a margin. A plant built on the cheaper, smaller machine either matches that price and loses money on every order, or holds its price and loses the order. Either way it is competing from a cost position it chose on the day it picked the machine, not on the day it opened for business — which is why the decision that determines whether a plant is competitive is made months before the first bar is sold." },
+      { t: "h", x: "The question to answer before buying, not after" },
+      { t: "p", x: "The number that matters is not the price of the machine. It is overhead divided by realistic monthly tonnage, run for the diameters and volumes you actually intend to sell into — not the diameter and speed used in the brochure comparison. A machine that costs more but produces enough bar to spread the same overhead thin is very often the cheaper plant to run, even though it was never the cheaper machine to buy. Buyers who work out that number before ordering rarely end up asking, a year later, why they cannot compete on price." },
+    ],
+  },
+  {
     slug: "glass-fibre-sizing-alkali-resistance-gfrp-rebar",
     title: "Fibre sizing: the coating nobody asks about that decides if GFRP rebar survives concrete",
     summary: "Glass fibre arrives at the pultrusion line already coated with a chemical layer a few molecules thick, and that layer — not the glass grade alone — decides whether the bar holds its strength inside alkaline concrete for decades.",
