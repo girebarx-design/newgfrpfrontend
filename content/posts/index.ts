@@ -2,6 +2,26 @@ import type { Post } from "../../lib/posts";
 
 export const posts: Post[] = [
   {
+    slug: "epoxy-vinyl-ester-polyester-resin-gfrp-rebar",
+    title: "Epoxy, vinyl ester or polyester: which resin should a GFRP rebar line run?",
+    summary: "The resin binds the glass, shields it from concrete pore water and sets the bar's heat limit, so the choice between epoxy, vinyl ester and polyester shapes durability, process control and what the line has to be built to handle.",
+    date: "2026-10-06",
+    body: [
+      { t: "p", x: "Glass carries the load in a GFRP bar. The resin decides how long the glass keeps carrying it. It holds the fibres in place, passes stress between them and keeps alkaline pore water away from the glass surface. Three resin families are used for rebar: unsaturated polyester, vinyl ester and epoxy. They are not interchangeable, and the choice is made on day one, because the resin system dictates how the bath, the die and the curing section have to be run." },
+      { t: "h", x: "Polyester: cheapest, and the weakest in concrete" },
+      { t: "p", x: "Polyester is the lowest-cost option and the easiest to run. Published laboratory comparisons of polyester, vinyl ester and epoxy GFRP bars have found that polyester bars degrade noticeably more after conditioning in alkaline solution, while vinyl ester and epoxy bars hold up better. That is the whole case against it for structural reinforcement. A bar sits in a pH 12-plus environment for the life of the structure, so a resin that saves money per kilogram but loses strength faster inside concrete is a poor trade." },
+      { t: "h", x: "Vinyl ester: the common middle path" },
+      { t: "p", x: "Vinyl ester is widely used for rebar because it combines good chemical and alkali resistance with a processing window that suits pultrusion. It cures by the same free-radical route as polyester, which is why many lines can switch between the two without redesign. The same laboratory comparisons placed vinyl ester among the best performers after alkaline conditioning, alongside epoxy." },
+      { t: "h", x: "Epoxy: strong adhesion, and less forgiving on the line" },
+      { t: "p", x: "Epoxy gives excellent adhesion to glass, low cure shrinkage and high mechanical performance. It is also a multi-component system: resin, hardener, accelerator and modifiers, mixed in set ratios. That is why an epoxy line depends on metered mixing, a controlled bath temperature and a die that holds its set point through the run. A small error in ratio or temperature does not make the bar look wrong. It leaves the network under-cured, which then shows up as low Tg and weaker properties in the lab." },
+      { t: "h", x: "What the specifications ask of any resin" },
+      { t: "p", x: "ASTM D7957, the American specification for GFRP bars, does not name a resin. It sets limits that any system has to meet: a minimum glass transition temperature of 100 °C, a fibre mass fraction of at least 70 percent, moisture absorption no higher than 1.0 percent by weight, and a minimum tensile strength retention after alkaline exposure. A resin passes or fails on these numbers, not on its family name. A well-cured vinyl ester bar will beat a badly cured epoxy bar, and the reverse is equally true." },
+      { t: "h", x: "How to choose for your plant" },
+      { t: "p", x: "Start from the market you plan to sell into. If you want projects with durability clauses, such as marine, bridge decks, drainage or road work, rule out polyester and choose between vinyl ester and epoxy. Then be honest about process control. A plant with tight temperature control, metered mixing and trained operators can run epoxy. A plant that cannot yet hold those conditions will get more consistent bar from vinyl ester." },
+      { t: "p", x: "Ask a line supplier which resin systems the line has actually run, at what speed and on which diameters, and ask to see degree of cure and Tg data for that system. A line that has only ever been commissioned on one resin has not shown you that it can handle another." },
+    ],
+  },
+  {
     slug: "degree-of-cure-glass-transition-gfrp-rebar",
     title: "Degree of cure and Tg: the two lab numbers that show whether a GFRP bar was cured properly",
     summary: "Degree of cure and glass transition temperature, both measured by DSC on a few milligrams of bar, are the most direct evidence of whether a pultrusion line's die and curing section actually did their job — and they are cheap enough to test on every batch.",
