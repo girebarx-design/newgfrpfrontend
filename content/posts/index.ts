@@ -2,6 +2,27 @@ import type { Post } from "../../lib/posts";
 
 export const posts: Post[] = [
   {
+    slug: "gfrp-bent-bars-stirrups-factory-bending",
+    title: "GFRP bent bars and stirrups: why they have to be made in the factory, and what the bend costs in strength",
+    summary: "GFRP rebar cannot be bent on site once cured, so stirrups, hooks and L-bars must be formed at the plant before the resin sets, and the bend carries only a fraction of the straight bar's strength.",
+    date: "2026-10-12",
+    body: [
+      { t: "p", x: "A steel bar fixer bends rebar on site with a lever and a pin. A GFRP bar cannot be treated that way. Once the resin has cured, the bar is a rigid composite that behaves elastically until it breaks, so forcing it around a tight radius on site cracks the matrix and snaps fibres rather than yielding them. That is why every stirrup, hook, L-bar and U-bar in a GFRP job has to be made at the plant, and why bent elements need their own production line and their own quality checks." },
+      { t: "h", x: "Why a cured GFRP bar cannot be bent on site" },
+      { t: "p", x: "Steel bends because it yields. The metal flows past its yield point and stays in its new shape. Glass fibre and cured thermoset resin do not yield. They stretch elastically and then fail. Manufacturer guidance for GFRP bars states this directly: bent shapes are made at the factory and field bending is not permitted. Some guidance allows gentle large-radius curves to be formed on site, but only where the radius exceeds the manufacturer's published minimum, and that minimum only accounts for the stress induced by bending, not the structural load the bar will carry afterwards." },
+      { t: "p", x: "This changes how a GFRP job is planned. Every bent shape has to be on the bar bending schedule before the order is placed, because a missing stirrup cannot be improvised at the site. A contractor switching from steel needs to know this before the first slab is cast." },
+      { t: "h", x: "How bends are made on the line" },
+      { t: "p", x: "A bent GFRP element is shaped while the resin is still uncured, then cured in that shape. The impregnated fibre is laid around a former to the drawing, and the shape sets as the resin cures. This is a different process from straight pultrusion, where the bar is cured continuously as it is pulled through a heated die. That is why a bending unit is a separate line with its own controls, not an attachment bolted onto the end of a straight-bar machine. CNC control matters here for the same reason it matters on a straight line: the shape has to come out the same on the thousandth stirrup as on the first, or it will not fit the cage." },
+      { t: "h", x: "What the bend costs in strength" },
+      { t: "p", x: "A bend is the weakest part of a GFRP element. On the outside of the curve the fibres are stretched, on the inside they are compressed and can kink, and the fibres do not share load evenly around the radius. Design codes have generally taken the strength at a bend to be in the range of 40 to 50 percent of the straight bar's strength. Published test work shows the retained fraction falls as bar diameter rises and as the bend radius gets tighter. A small-diameter bar bent around a generous radius keeps much more of its strength than a thick bar bent tightly." },
+      { t: "p", x: "This is why GFRP stirrups are usually small diameters, and why the design guide sets a floor on the radius. ACI 440.1R-06 requires a minimum ratio of bend radius to bar diameter of 3 for FRP stirrups. A tighter bend is not a detailing shortcut. It is a different element with less capacity than the drawing assumes." },
+      { t: "h", x: "How bend quality is checked" },
+      { t: "p", x: "ASTM D7957, the American specification for GFRP bars, covers both straight bars and bent shapes and sets a minimum inside bend diameter for bent bars. Its tensile and physical tests are run on the straight portion of a bent bar. The bend itself is tested by a separate method under ACI 440.3R, and research comparing those methods has found that the choice of test changes the result. A tensile certificate for straight bar from the same plant says nothing about the bends. Ask for bend test data on the actual diameters and radii in the schedule." },
+      { t: "h", x: "What this means for a plant" },
+      { t: "p", x: "Bent elements sell differently from straight bar. Each piece is made to a drawing, cut and shaped to order, so the work per kilogram is higher and so is the price per kilogram. A plant that can only supply straight bar leaves the stirrups to someone else, and many buyers would rather order a whole cage schedule from one supplier. The catch is consistency. A bending line that holds shape, radius and cure from batch to batch is what makes that business work, and a line that cannot hold them produces stirrups that either do not fit the cage or do not carry the load at the bend." },
+    ],
+  },
+  {
     slug: "epoxy-vinyl-ester-polyester-resin-gfrp-rebar",
     title: "Epoxy, vinyl ester or polyester: which resin should a GFRP rebar line run?",
     summary: "The resin binds the glass, shields it from concrete pore water and sets the bar's heat limit, so the choice between epoxy, vinyl ester and polyester shapes durability, process control and what the line has to be built to handle.",
