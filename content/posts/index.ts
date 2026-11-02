@@ -2,6 +2,26 @@ import type { Post } from "../../lib/posts";
 
 export const posts: Post[] = [
   {
+    slug: "gfrp-rebar-creep-rupture-sustained-load-limit",
+    title: "GFRP rebar creep rupture: why design codes cap the sustained stress in the bar",
+    summary: "A GFRP bar can fail under a load well below its short-term tensile strength if the load stays on long enough, which is why design codes limit sustained stress to a fraction of strength and why cure and impregnation quality matter to that limit.",
+    date: "2026-11-02",
+    body: [
+      { t: "p", x: "A steel bar under a steady load does not run out of time. If the stress stays below yield, it stays there for the life of the building. A GFRP bar behaves differently. Hold it under a high steady stress for long enough and it can rupture without any increase in load, at a stress well below the tensile strength printed on its test certificate. This is called creep rupture, and it is the reason design codes treat the load a GFRP bar carries all day differently from the load it sees once in a storm." },
+      { t: "h", x: "What creep rupture is" },
+      { t: "p", x: "Creep rupture is time-dependent failure under constant load. The higher the sustained stress is as a fraction of short-term strength, the shorter the time to failure. A bar loaded to 90 percent of its strength might fail in hours. A bar loaded to a much lower fraction might last decades. Heat, moisture and high alkalinity all shorten that time, and all three are present inside concrete, which is why the limit is set for bars in service and not for bars on a test bench." },
+      { t: "p", x: "Of the common fibre types, glass is the most susceptible to this effect. Reviews of FRP reinforcement rank carbon best under sustained load, with aramid and basalt in between and glass the most prone to creep rupture. That is why the rule matters for GFRP in particular, and why it is rarely a concern in a steel-reinforced design." },
+      { t: "h", x: "What the codes limit" },
+      { t: "p", x: "The American guide ACI 440.1R set the sustained stress limit for GFRP at 0.20 times the design tensile strength of the bar. That figure was chosen conservatively because test data and test methods were limited at the time. The newer ACI 440.11-22, written for structures reinforced only with GFRP, is reported to allow 30 percent of design strength, together with an environmental reduction factor of 0.85. Published work extrapolating creep-rupture tests to about 114 years has concluded that a limit near 0.30 is conservative. Check the current edition of the code you are designing to, because the number has changed between editions." },
+      { t: "p", x: "The practical effect is that the stress under dead load plus the sustained part of live load, calculated on the unfactored loads, has to stay under that limit. Because GFRP has a low modulus, a designer often finds that deflection or crack width controls the section before strength does. The creep rupture check then decides whether the bar area chosen for serviceability is also enough for sustained stress. It frequently is, but it has to be checked, not assumed." },
+      { t: "h", x: "Why the bar's quality sets how much margin you really have" },
+      { t: "p", x: "The codes assume a bar that meets its material specification. Creep rupture is driven by what happens at the fibre and at the fibre-resin interface, so it depends on the same things that decide long-term durability: how fully the resin has cured, how completely every filament was wet out, and whether the glass was kept dry before it met the resin. An undercured bar or one with dry fibre inside it does not have the sustained-load performance that the code limit was written for." },
+      { t: "p", x: "This is one more reason a tensile certificate on its own is not enough evidence for a bar. Short-term strength says nothing about time to failure under load. Degree of cure, glass transition temperature and alkali retention data are the tests that show whether the bar is likely to sit inside the assumptions the design limit rests on." },
+      { t: "h", x: "What to ask for" },
+      { t: "p", x: "If you are a manufacturer, ask your line supplier for cure and Tg data on the largest diameter at rated speed, because thick bars cure last at the core. If you are buying bar for a structure that carries heavy permanent load, such as a slab with a high dead load or a retaining wall, ask the design engineer which sustained-stress limit was used and which code edition it came from. A bar chosen on price per kilogram and a design checked only for ultimate strength are the two places this issue usually slips through." },
+    ],
+  },
+  {
     slug: "gfrp-bent-bars-stirrups-factory-bending",
     title: "GFRP bent bars and stirrups: why they have to be made in the factory, and what the bend costs in strength",
     summary: "GFRP rebar cannot be bent on site once cured, so stirrups, hooks and L-bars must be formed at the plant before the resin sets, and the bend carries only a fraction of the straight bar's strength.",
