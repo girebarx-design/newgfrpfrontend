@@ -15,6 +15,8 @@ interface ERPNextInvoiceDoc {
   name: string;
   docstatus: number;
   customer?: string;
+  place_of_supply?: string;
+  billing_address_gstin?: string;
   ewaybill?: string;
   grand_total?: number;
   rounded_total?: number;
@@ -171,6 +173,20 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "invoice_number is required" }, { status: 400 });
   }
 
+  const encInv = encodeURIComponent(invoiceNumber);
+  let existingDoc: ERPNextInvoiceDoc | null = null;
+  try {
+    const existingRes = await fetch(`${ERPNEXT_HOST}/api/resource/Sales%20Invoice/${encInv}`, {
+      headers: DEFAULT_HEADERS,
+    });
+    if (existingRes.ok) {
+      const data = await existingRes.json();
+      existingDoc = data.data;
+    }
+  } catch (err) {
+    console.error("Error fetching existing invoice:", err);
+  }
+
   const customerName = inv.customer_name || inv.CUSTOMER_NAME || "Cash Customer";
   const gstin = inv.gst_no || inv.gstin || inv.GSTIN || "";
   const finalCustomer = await ensureCustomer(customerName, gstin);
@@ -178,12 +194,25 @@ export async function POST(req: Request) {
   const postingDate = inv.date || inv.DATE || new Date().toISOString().split("T")[0];
   const dueDate = inv.due_date || inv.DUE_DATE || postingDate;
   const ewaybill = (inv.eway_bill_number || inv.ewaybill || inv.CF?.E_WAY_BILL_NO || "").trim();
-  const placeOfSupply = inv.place_of_supply || inv.PLACE_OF_SUPPLY || "23-Madhya Pradesh";
 
-  const isMP =
-    placeOfSupply.startsWith("23") ||
-    placeOfSupply.toLowerCase().includes("madhya pradesh") ||
-    placeOfSupply.toLowerCase().includes("mp");
+  // Determine In-State (MP) vs Inter-State (IGST)
+  const rawPOS = (inv.place_of_supply || inv.PLACE_OF_SUPPLY || "").trim().toLowerCase();
+  const rawGSTIN = (inv.gst_no || inv.gstin || inv.GSTIN || gstin || "").trim();
+
+  let isMP = true;
+  if (rawPOS) {
+    isMP = rawPOS === "23" || rawPOS.startsWith("23-") || rawPOS === "mp" || rawPOS.includes("madhya pradesh");
+  } else if (rawGSTIN && rawGSTIN.length >= 2) {
+    isMP = rawGSTIN.startsWith("23");
+  } else if (existingDoc) {
+    const existingPOS = (existingDoc.place_of_supply || "").toLowerCase();
+    const existingGSTIN = (existingDoc.billing_address_gstin || "");
+    if (existingPOS) {
+      isMP = existingPOS.startsWith("23") || existingPOS.includes("madhya pradesh");
+    } else if (existingGSTIN && existingGSTIN.length >= 2) {
+      isMP = existingGSTIN.startsWith("23");
+    }
+  }
 
   const taxesTemplate = isMP
     ? "Output GST In-State - 18% - CVPL"
@@ -245,21 +274,6 @@ export async function POST(req: Request) {
   });
 
   const totalAmount = parseFloat(String(inv.total || inv.TOTAL || 0));
-
-  // Check if invoice already exists in ERPNext
-  const encInv = encodeURIComponent(invoiceNumber);
-  let existingDoc: ERPNextInvoiceDoc | null = null;
-  try {
-    const existingRes = await fetch(`${ERPNEXT_HOST}/api/resource/Sales%20Invoice/${encInv}`, {
-      headers: DEFAULT_HEADERS,
-    });
-    if (existingRes.ok) {
-      const data = await existingRes.json();
-      existingDoc = data.data;
-    }
-  } catch (err) {
-    console.error("Error fetching existing invoice:", err);
-  }
 
   // 1. If invoice already exists in ERPNext
   if (existingDoc) {
