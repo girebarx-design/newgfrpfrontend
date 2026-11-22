@@ -3,9 +3,9 @@ import { Jsonld, breadcrumb } from "@/components/Jsonld";
 import { START, DRIVERS } from "@/content/site";
 
 export const metadata = {
-  title: "How to start a GFRP rebar plant in India",
+  title: "How to Start a GFRP & FRP Rebar Manufacturing Plant in India",
   description:
-    "What a GFRP rebar plant actually needs: shed, sanctioned power, raw material, people, testing and time. Plus the six things that decide your cost of production.",
+    "What a GFRP rebar plant actually needs: shed layout, HT power connection, raw materials, testing lab setup, and conversion cost arithmetic for setting up a production line in India.",
   alternates: { canonical: "/start-a-plant" },
 };
 

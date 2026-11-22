@@ -4,9 +4,9 @@ import { Jsonld, breadcrumb } from "@/components/Jsonld";
 import { MACHINES, STATIONS, MATERIALS_NOTE } from "@/content/site";
 
 export const metadata = {
-  title: "GFRP rebar production lines — CT2, CT4, CT6, bent and mesh",
+  title: "GFRP & FRP Rebar Machines — CT2, CT4, CT6, CNC Bent & Mesh Lines",
   description:
-    "Composite Tech straight, bent and mesh lines. Bars at once, diameter range, footprint, connected power, and the eight stations inside the line.",
+    "Composite Tech straight, bent, and mesh pultrusion lines in India. Multi-strand configurations (2, 4, 6 bars), diameter range 3–20 mm, connected power, and eight sequential stations.",
   alternates: { canonical: "/machines" },
 };
 

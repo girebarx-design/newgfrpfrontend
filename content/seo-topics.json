@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "gfrp-rebar-manufacturing-plant-setup-cost-india",
+    "title": "GFRP rebar manufacturing plant setup cost in India: capex, opex, and space requirements",
+    "targetQuery": "GFRP rebar manufacturing plant setup cost in India",
+    "secondaryKeywords": ["GFRP rebar machine price India", "pultrusion plant investment", "GFRP project report", "cost to start GFRP factory"],
+    "focus": "Complete capital expenditure and working capital breakdown for an industrial-scale line, covering machine, shed, HT power connection, lab testing equipment, and first-month raw material inventory."
+  },
+  {
+    "slug": "multi-strand-vs-single-strand-pultrusion-lines",
+    "title": "4-strand and 6-strand vs single-strand GFRP lines: why strand count decides plant survival",
+    "targetQuery": "multi strand GFRP rebar production line",
+    "secondaryKeywords": ["4 strand pultrusion machine", "6 strand GFRP line", "CT4 machine", "pultrusion machine output kg per hour"],
+    "focus": "A side-by-side operating comparison showing why pulling 4 or 6 bars simultaneously at 1.4-1.8 m/min spreads fixed overhead to ₹14/kg while single-strand lines choke on ₹45/kg conversion costs."
+  },
+  {
+    "slug": "gfrp-mesh-welding-production-line-specifications",
+    "title": "GFRP reinforcing mesh production lines: continuous cross-wire feeding, thermal bonding, and machine setup",
+    "targetQuery": "GFRP reinforcing mesh production line machine",
+    "secondaryKeywords": ["GFRP mesh machine India", "composite reinforcing mesh manufacturing", "fiberglass mesh production line", "welded composite mesh equipment"],
+    "focus": "Technical walkthrough of dedicated continuous 2D composite mesh lines for slab-on-grade, precast panels, and shotcrete reinforcement, explaining cross-wire indexing and thermal joint consolidation."
+  },
+  {
+    "slug": "pultrusion-speed-vs-rebar-diameter-line-limits",
+    "title": "Pultrusion pulling speed vs rebar diameter: realistic metres-per-minute from 8 mm to 25 mm",
+    "targetQuery": "GFRP rebar pultrusion line speed",
+    "secondaryKeywords": ["pultrusion pulling speed rebar", "how fast does a GFRP machine run", "pultrusion metres per minute by diameter"],
+    "focus": "The physical thermal-transfer constraints that govern pulling speed across small (8-10mm), medium (12-16mm), and heavy (20-25mm) bars. Why brochure claims of 3 m/min on thick bars lead to under-cured scrap."
+  },
+  {
+    "slug": "resin-injection-chamber-vs-open-bath-pultrusion",
+    "title": "Resin injection module vs open dip-tank: void content, styrene emissions, and fiber wet-out",
+    "targetQuery": "resin injection chamber vs open bath pultrusion",
+    "secondaryKeywords": ["closed resin bath pultrusion", "GFRP rebar impregnation module", "styrene emission composite factory"],
+    "focus": "Why industrial production lines use multi-stage pressurized or sealed impregnation modules rather than open dripping troughs, detailing fiber wet-out consistency and alkali-resistance test outcomes."
+  },
+  {
+    "slug": "short-wave-infrared-preheating-gfrp-pultrusion",
+    "title": "Short-wave infrared pre-heating in GFRP pultrusion: curing core-out without surface blistering",
+    "targetQuery": "infrared heating in GFRP rebar pultrusion",
+    "secondaryKeywords": ["curing oven GFRP line", "short wave IR booster pultrusion", "temperature control GFRP die"],
+    "focus": "How short-wave infrared penetrates glass rovings to initiate polymerization from the internal core before the bar enters conventional heating dies, eliminating internal stress and thermal micro-cracking."
+  },
+  {
+    "slug": "flying-cut-off-saw-vs-manual-cutting-rebar-lines",
+    "title": "Automated flying cut-off saw vs manual cutting: length tolerance, cycle speed, and operator safety",
+    "targetQuery": "flying cut off saw GFRP rebar machine",
+    "secondaryKeywords": ["automatic rebar cutting pultrusion", "GFRP bar cut to length unit", "composite rebar flying saw"],
+    "focus": "The mechanical synchronization required for continuous cutting without line hesitation. Why manual cutting creates site length disputes and burred bar ends that fail customer receiving inspections."
+  },
+  {
+    "slug": "shed-space-power-sanction-gfrp-rebar-plant",
+    "title": "Factory shed layout, foundation, and HT power requirements for a 32-metre GFRP rebar line",
+    "targetQuery": "GFRP rebar plant shed layout and power requirements",
+    "secondaryKeywords": ["space required for GFRP rebar machine", "power connection for pultrusion plant", "pultrusion factory layout design"],
+    "focus": "Practical plant engineering requirements: 32m clear linear length, creel aisle clearance, curing exhaust ducting, and why getting your 3-phase industrial power sanction underway early prevents commissioning delays."
+  },
+  {
+    "slug": "bis-is-18256-license-cml-plant-audit-process",
+    "title": "Getting a BIS license (IS 18256:2023) for your GFRP rebar plant: factory lab setup and CM/L audit",
+    "targetQuery": "how to get BIS license for GFRP rebar IS 18256",
+    "secondaryKeywords": ["BIS certification GFRP rebar", "IS 18256 plant testing lab", "CM/L license composite rebar India"],
+    "focus": "A step-by-step roadmap for passing the Bureau of Indian Standards factory audit, mandatory in-house testing equipment (tensile UTM, resin burnout furnace, cross-section measurement), and sample verification."
+  }
+]

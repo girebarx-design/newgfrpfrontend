@@ -5,9 +5,9 @@ import EnquiryForm from "@/components/EnquiryForm";
 import { WHATSAPP_NUMBER, WHATSAPP_TEXT } from "@/lib/site";
 
 export const metadata = {
-  title: "Visit the plant in Pithampur",
+  title: "Visit the GFRP Rebar Plant in Pithampur, India",
   description:
-    "Come and watch four hours of continuous GFRP rebar production at Pithampur, Madhya Pradesh. Bring a stopwatch and a weighing scale.",
+    "Watch four hours of continuous GFRP & FRP rebar production at Pithampur, Madhya Pradesh. Bring a stopwatch and a weighing scale to inspect the line mid-run.",
   alternates: { canonical: "/visit" },
 };
 

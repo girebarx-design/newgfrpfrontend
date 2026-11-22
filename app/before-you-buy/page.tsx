@@ -4,9 +4,9 @@ import { AUDIT, AUDIT_INTRO, BUYER_CHECKS } from "@/content/site";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "The 17-point line audit — run it on any GFRP rebar machine",
+  title: "The 17-Point GFRP & FRP Rebar Line Audit — Test Any Machine Before Buying",
   description:
-    "Seventeen tests to run on any GFRP rebar production line, ours included. Grouped by what to watch, how it is built, what it costs to run, and who you buy from. Names no brand, recommends no machine.",
+    "Seventeen tests to run on any GFRP/FRP rebar production line, ours included. Power draw per kg, heating zones, caterpillar pullers, and IS 18256 compliance. Names no brand, recommends no machine.",
   alternates: { canonical: "/before-you-buy" },
 };
 

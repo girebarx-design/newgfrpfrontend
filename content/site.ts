@@ -1,10 +1,10 @@
 // All site copy. Edit here — nothing reads from a database to render a page.
 
 export const HERO = {
-  eyebrow: "Composite Tech · India",
-  title: "Start a GFRP rebar plant",
+  eyebrow: "Composite Tech · Official India Partner",
+  title: "GFRP & FRP rebar production lines",
   titleQuiet: "in India",
-  sub: "We picked this line for our own factory in Pithampur before we ever sold one.",
+  sub: "We picked this line for our own factory in Pithampur before we ever sold one. Real pultrusion machinery engineered for IS 18256 compliance, lowest conversion cost, and continuous multi-shift production.",
 };
 
 export const FACTS = [
@@ -15,7 +15,7 @@ export const FACTS = [
 ];
 
 export const COUNTRIES_NOTE =
-  "Composite-Tech report lines running in over 40 countries, including the USA, Spain and Mexico.";
+  "Composite Tech has production lines running in over 40 countries, including the USA, Spain and Mexico.";
 
 export const HOME_ROWS = [
   { label: "Our bias", title: "We want India making real GFRP, not lookalikes",

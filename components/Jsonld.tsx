@@ -39,12 +39,72 @@ export const organisation = {
   ],
   knowsAbout: [
     "GFRP rebar manufacturing",
+    "FRP rebar machine",
+    "GFRP rebar production lines",
+    "FRP rebar production lines",
+    "GFRP rebar machine lines in India",
     "Pultrusion production lines",
-    "IS 18256",
-    "Composite reinforcement",
+    "Pultrusion machinery",
+    "IS 18256:2023",
+    "Composite reinforcement machinery",
+    "CNC bent GFRP stirrup machines",
+    "GFRP reinforcing mesh machines",
   ],
   description:
     "India partner for Composite Tech GFRP rebar production lines. We manufacture GFRP rebar in Pithampur on the same line we sell.",
+};
+
+export const productsCatalog = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Composite Tech GFRP & FRP Rebar Machinery Lines",
+  itemListElement: [
+    {
+      "@type": "Product",
+      position: 1,
+      name: "Composite Tech CT2 GFRP Rebar Production Line",
+      description: "Entry-level 2-bar straight GFRP/FRP rebar pultrusion line (3–20 mm diameter range).",
+      url: `${SITE_URL}/machines/ct2`,
+      brand: { "@type": "Brand", name: "Composite Tech" },
+      category: "GFRP Rebar Machine",
+    },
+    {
+      "@type": "Product",
+      position: 2,
+      name: "Composite Tech CT4 GFRP Rebar Production Line",
+      description: "Commercial 4-bar simultaneous GFRP/FRP rebar pultrusion line (3–20 mm diameter range).",
+      url: `${SITE_URL}/machines/ct4`,
+      brand: { "@type": "Brand", name: "Composite Tech" },
+      category: "GFRP Rebar Machine",
+    },
+    {
+      "@type": "Product",
+      position: 3,
+      name: "Composite Tech CT6 Industrial GFRP Rebar Line",
+      description: "High-capacity 6-bar continuous GFRP/FRP pultrusion line operating at Pithampur (3–20 mm diameter range).",
+      url: `${SITE_URL}/machines/ct6`,
+      brand: { "@type": "Brand", name: "Composite Tech" },
+      category: "GFRP Rebar Machine",
+    },
+    {
+      "@type": "Product",
+      position: 4,
+      name: "Composite Tech CNC Bent Element Line",
+      description: "Dedicated CNC thermoforming and curing line for GFRP stirrups, shear links, and hooks (6–16 mm).",
+      url: `${SITE_URL}/machines/bent`,
+      brand: { "@type": "Brand", name: "Composite Tech" },
+      category: "GFRP Bent Stirrup Machine",
+    },
+    {
+      "@type": "Product",
+      position: 5,
+      name: "Composite Tech CT1M / CT2M GFRP Mesh Production Line",
+      description: "Continuous composite reinforcing mesh line for slabs, pavements, and precast panels.",
+      url: `${SITE_URL}/machines/mesh`,
+      brand: { "@type": "Brand", name: "Composite Tech" },
+      category: "GFRP Mesh Machine",
+    },
+  ],
 };
 
 export function breadcrumb(trail: [string, string][]) {

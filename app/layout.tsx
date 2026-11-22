@@ -10,11 +10,25 @@ const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400","500"], variabl
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "GFRP rebar production lines in India | GFRP India",
+    default: "GFRP & FRP Rebar Production Lines in India | GFRP India",
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Composite Tech GFRP rebar production lines, represented in India by people who run one. Machine specifications, a 17-point audit for any line, and what it takes to start a plant.",
+    "Official India partner for Composite Tech GFRP & FRP rebar production lines. High-speed multi-strand pultrusion machinery, CNC stirrup benders, and mesh lines running at our Pithampur plant.",
+  keywords: [
+    "GFRP rebar machine",
+    "FRP rebar machine",
+    "GFRP rebar production line",
+    "FRP rebar production line",
+    "GFRP rebar manufacturing machine",
+    "pultrusion machine India",
+    "GFRP machine price in India",
+    "Composite Tech India",
+    "GFRP rebar plant setup",
+    "IS 18256 rebar machine",
+    "GFRP mesh welding machine",
+    "CNC bent GFRP stirrup machine"
+  ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -39,6 +53,11 @@ export const metadata: Metadata = {
     apple: "/img/apple-touch-icon.png",
   },
   robots: { index: true, follow: true },
+  other: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { "google-site-verification": process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+      : {}),
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
