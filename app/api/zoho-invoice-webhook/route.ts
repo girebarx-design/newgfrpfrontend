@@ -14,6 +14,7 @@ const DEFAULT_HEADERS = {
 interface ERPNextInvoiceDoc {
   name: string;
   docstatus: number;
+  customer?: string;
   ewaybill?: string;
   grand_total?: number;
   rounded_total?: number;
@@ -267,12 +268,17 @@ export async function POST(req: Request) {
     // Case A: Draft in ERPNext -> UPDATE ALL FIELDS
     if (docstatus === 0) {
       const updatePayload: Record<string, unknown> = {
-        customer: finalCustomer,
         posting_date: postingDate,
         due_date: dueDate,
         taxes_and_charges: taxesTemplate,
         taxes,
       };
+      if (finalCustomer !== existingDoc.customer) {
+        updatePayload.customer = finalCustomer;
+        updatePayload.customer_address = "";
+        updatePayload.shipping_address_name = "";
+        updatePayload.contact_person = "";
+      }
       if (ewaybill) updatePayload.ewaybill = ewaybill;
       if (items.length > 0) updatePayload.items = items;
       if (totalAmount > 0) {
