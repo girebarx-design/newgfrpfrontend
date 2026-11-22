@@ -11,6 +11,14 @@ const DEFAULT_HEADERS = {
   "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)",
 };
 
+interface ERPNextInvoiceDoc {
+  name: string;
+  docstatus: number;
+  ewaybill?: string;
+  grand_total?: number;
+  rounded_total?: number;
+}
+
 interface ZohoLineItem {
   name?: string;
   item_name?: string;
@@ -42,6 +50,9 @@ interface ZohoInvoicePayload {
   PLACE_OF_SUPPLY?: string;
   total?: number | string;
   TOTAL?: number | string;
+  balance?: number | string;
+  BALANCE?: number | string;
+  status?: string;
   line_items?: ZohoLineItem[] | string;
   items?: ZohoLineItem[] | string;
   item_details?: ZohoLineItem[] | string;
@@ -98,6 +109,24 @@ async function ensureCustomer(customerName: string, gstin?: string): Promise<str
   return customerName.trim();
 }
 
+async function addInvoiceComment(invoiceName: string, message: string) {
+  try {
+    await fetch(`${ERPNEXT_HOST}/api/resource/Comment`, {
+      method: "POST",
+      headers: DEFAULT_HEADERS,
+      body: JSON.stringify({
+        doctype: "Comment",
+        comment_type: "Comment",
+        reference_doctype: "Sales Invoice",
+        reference_name: invoiceName,
+        content: message,
+      }),
+    });
+  } catch (err) {
+    console.error("Error adding comment to invoice:", err);
+  }
+}
+
 export async function POST(req: Request) {
   const url = new URL(req.url);
   const token = url.searchParams.get("secret") || req.headers.get("x-webhook-secret");
@@ -141,31 +170,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "invoice_number is required" }, { status: 400 });
   }
 
-  // Idempotency: Check if already exists in ERPNext
-  try {
-    const encInv = encodeURIComponent(invoiceNumber);
-    const existing = await fetch(`${ERPNEXT_HOST}/api/resource/Sales%20Invoice/${encInv}`, {
-      headers: DEFAULT_HEADERS,
-    });
-    if (existing.ok) {
-      const data = await existing.json();
-      return NextResponse.json({
-        status: "already_exists",
-        message: `Invoice ${invoiceNumber} already exists in ERPNext`,
-        docstatus: data.data.docstatus,
-      });
-    }
-  } catch (err) {
-    console.error("Idempotency check error:", err);
-  }
-
   const customerName = inv.customer_name || inv.CUSTOMER_NAME || "Cash Customer";
   const gstin = inv.gst_no || inv.gstin || inv.GSTIN || "";
   const finalCustomer = await ensureCustomer(customerName, gstin);
 
   const postingDate = inv.date || inv.DATE || new Date().toISOString().split("T")[0];
   const dueDate = inv.due_date || inv.DUE_DATE || postingDate;
-  const ewaybill = inv.eway_bill_number || inv.ewaybill || inv.CF?.E_WAY_BILL_NO || "";
+  const ewaybill = (inv.eway_bill_number || inv.ewaybill || inv.CF?.E_WAY_BILL_NO || "").trim();
   const placeOfSupply = inv.place_of_supply || inv.PLACE_OF_SUPPLY || "23-Madhya Pradesh";
 
   const isMP =
@@ -234,6 +245,121 @@ export async function POST(req: Request) {
 
   const totalAmount = parseFloat(String(inv.total || inv.TOTAL || 0));
 
+  // Check if invoice already exists in ERPNext
+  const encInv = encodeURIComponent(invoiceNumber);
+  let existingDoc: ERPNextInvoiceDoc | null = null;
+  try {
+    const existingRes = await fetch(`${ERPNEXT_HOST}/api/resource/Sales%20Invoice/${encInv}`, {
+      headers: DEFAULT_HEADERS,
+    });
+    if (existingRes.ok) {
+      const data = await existingRes.json();
+      existingDoc = data.data;
+    }
+  } catch (err) {
+    console.error("Error fetching existing invoice:", err);
+  }
+
+  // 1. If invoice already exists in ERPNext
+  if (existingDoc) {
+    const docstatus = existingDoc.docstatus; // 0 = Draft, 1 = Submitted, 2 = Cancelled
+
+    // Case A: Draft in ERPNext -> UPDATE ALL FIELDS
+    if (docstatus === 0) {
+      const updatePayload: Record<string, unknown> = {
+        customer: finalCustomer,
+        posting_date: postingDate,
+        due_date: dueDate,
+        taxes_and_charges: taxesTemplate,
+        taxes,
+      };
+      if (ewaybill) updatePayload.ewaybill = ewaybill;
+      if (items.length > 0) updatePayload.items = items;
+      if (totalAmount > 0) {
+        updatePayload.payment_schedule = [
+          {
+            due_date: dueDate,
+            invoice_portion: 100,
+            payment_amount: totalAmount,
+          },
+        ];
+      }
+
+      const putRes = await fetch(`${ERPNEXT_HOST}/api/resource/Sales%20Invoice/${encInv}`, {
+        method: "PUT",
+        headers: DEFAULT_HEADERS,
+        body: JSON.stringify(updatePayload),
+      });
+
+      if (!putRes.ok) {
+        const errText = await putRes.text();
+        return NextResponse.json(
+          { error: "Failed to update draft invoice in ERPNext", details: errText },
+          { status: 502 }
+        );
+      }
+
+      return NextResponse.json({
+        status: "updated_draft",
+        invoice: invoiceNumber,
+        docstatus: 0,
+        message: `Draft invoice ${invoiceNumber} updated in ERPNext with latest Zoho Books changes.`,
+      });
+    }
+
+    // Case B: Submitted in ERPNext -> UPDATE ALLOWED FIELDS + LOG NOTICE
+    if (docstatus === 1) {
+      let ewayUpdated = false;
+      if (ewaybill && ewaybill !== existingDoc.ewaybill) {
+        const putRes = await fetch(`${ERPNEXT_HOST}/api/resource/Sales%20Invoice/${encInv}`, {
+          method: "PUT",
+          headers: DEFAULT_HEADERS,
+          body: JSON.stringify({ ewaybill }),
+        });
+        if (putRes.ok) ewayUpdated = true;
+      }
+
+      // Check if amounts or items changed
+      const oldTotal = existingDoc.rounded_total || existingDoc.grand_total || 0;
+      const isTotalChanged = totalAmount > 0 && Math.abs(oldTotal - totalAmount) > 1.0;
+      if (isTotalChanged) {
+        const itemsSummary = items
+          .map((it) => `${it.item_code}: ${it.qty}kg @ ₹${it.rate}`)
+          .join(", ");
+        await addInvoiceComment(
+          invoiceNumber,
+          `⚠️ <b>Zoho Books Sync Notice:</b> Invoice was edited in Zoho Books after submission in ERPNext.<br>` +
+            `• Old Total in ERPNext: ₹${oldTotal.toLocaleString("en-IN")}<br>` +
+            `• New Total in Zoho: ₹${totalAmount.toLocaleString("en-IN")}<br>` +
+            `• Updated Items in Zoho: ${itemsSummary}<br>` +
+            `<i>Please review if physical dispatch or an amendment is required in ERPNext.</i>`
+        );
+      }
+
+      return NextResponse.json({
+        status: "submitted_synced",
+        invoice: invoiceNumber,
+        docstatus: 1,
+        ewaybill_updated: ewayUpdated,
+        amount_mismatch: isTotalChanged,
+        message: isTotalChanged
+          ? `Invoice ${invoiceNumber} is already submitted in ERPNext. Added notice comment on invoice.`
+          : `Invoice ${invoiceNumber} is already submitted in ERPNext. E-way bill checked/updated.`,
+      });
+    }
+
+    // Case C: Cancelled in ERPNext
+    if (docstatus === 2) {
+      return NextResponse.json({
+        status: "cancelled",
+        invoice: invoiceNumber,
+        docstatus: 2,
+        message: `Invoice ${invoiceNumber} is cancelled in ERPNext.`,
+      });
+    }
+  }
+
+  // 2. If invoice does NOT exist in ERPNext -> INSERT NEW DRAFT
   const doc = {
     doctype: "Sales Invoice",
     __newname: invoiceNumber,
@@ -249,15 +375,18 @@ export async function POST(req: Request) {
     set_warehouse: "Finished Goods - CVPL",
     taxes_and_charges: taxesTemplate,
     tc_name: "Standard Sales Terms - GFRP Products",
-    items: items.length > 0 ? items : [
-      {
-        item_code: "GFRP-REBAR-12MM",
-        qty: 1,
-        rate: 100,
-        warehouse: "Finished Goods - CVPL",
-        income_account: "Sales - CVPL",
-      }
-    ],
+    items:
+      items.length > 0
+        ? items
+        : [
+            {
+              item_code: "GFRP-REBAR-12MM",
+              qty: 1,
+              rate: 100,
+              warehouse: "Finished Goods - CVPL",
+              income_account: "Sales - CVPL",
+            },
+          ],
     taxes,
     payment_schedule: [
       {
