@@ -2,6 +2,34 @@ import type { Post } from "../../lib/posts";
 
 export const posts: Post[] = [
   {
+    slug: "gfrp-rebar-manufacturing-plant-setup-cost-india",
+    title: "GFRP rebar manufacturing plant setup cost in India: capex, opex, and space requirements",
+    summary: "A complete capital expenditure and operating cost breakdown for setting up an industrial GFRP rebar plant in India, covering multi-strand machinery, shed dimensions, electrical sanctions, BIS testing labs, and working capital.",
+    date: "2026-11-23",
+    img: {
+      src: "/img/line-pithampur-clean.jpg",
+      alt: "Industrial multi-strand GFRP rebar pultrusion line operating on the factory floor",
+      cap: "Industrial multi-strand pultrusion line with multi-zone heating and automated flying saw",
+    },
+    body: [
+      { t: "p", x: "Setting up a GFRP rebar manufacturing plant in India requires evaluating full project capitalization rather than the purchase price of a pultrusion machine alone. Project reports distributed by equipment brokers frequently claim a composite rebar unit can be commissioned for ₹25 to ₹35 lakh. That budget only buys an uninsulated, low-speed two-strand machine without auxiliary infrastructure or testing instruments. A commercially viable plant producing structural composite reinforcement that complies with IS 18256:2023 requires between ₹1.35 crore and ₹1.65 crore in total capital outlay. Understanding where this capital is allocated prevents liquidity shortages during plant commissioning." },
+      { t: "h", x: "Machinery capital expenditure: strand count and automation" },
+      { t: "p", x: "The production line constitutes the primary capital investment. An industrial multi-strand line, configured to pull 4 to 6 strands simultaneously across 6 mm to 16 mm diameters, costs between ₹75 lakh and ₹85 lakh. This includes a multi-tier roving creel with individual tension brakes, a temperature-regulated resin impregnation tank, multi-zone heating dies capable of holding 250 °C, synchronized helical ribbing units, a continuous servo caterpillar puller, and an automated flying cut-off saw." },
+      { t: "p", x: "A budget two-strand machine for ₹20 lakh restricts production output to 20 to 25 kg per hour. An industrial multi-strand line delivers 120 to 180 kg per hour with the same floor crew. Because shed rent, supervision, and administrative overheads are fixed, the multi-strand setup drops conversion cost from ₹40 per kg on small machines down to ₹12 to ₹15 per kg." },
+      { t: "h", x: "Factory shed dimensions and electrical infrastructure" },
+      { t: "p", x: "GFRP pultrusion is a continuous linear process. The machinery requires a minimum unobstructed linear length of 32 metres: 6 metres for creel feed, 3 metres for impregnation, 8 metres for dies and heating tunnel, 4 metres for the caterpillar puller, 4 metres for the cutting stroke, and 7 metres for inspection and coiling. Storing roving pallets, resin drums, and finished coils requires a covered shed of 4,000 to 6,000 square feet." },
+      { t: "p", x: "Industrial shed rent in manufacturing hubs like Pithampur or Sanand ranges from ₹15 to ₹22 per square foot, or ₹70,000 to ₹1,10,000 monthly. Power infrastructure requires an industrial connection with 60 to 80 kVA sanctioned load. Transformer installation, main panels, and cabling require ₹7 to ₹10 lakh. Die heating draws 18 to 28 kW during steady-state production. Insulated dies operate at 0.7 to 0.9 kWh per kg, whereas uninsulated dies draw 2.0 to 2.4 kWh per kg, adding ₹15 lakh in annual electrical waste at ₹9 per unit." },
+      { t: "h", x: "Mandatory in-house laboratory for IS 18256:2023 compliance" },
+      { t: "p", x: "To supply infrastructure projects or highway work, a plant must secure a Bureau of Indian Standards license under IS 18256:2023. Grant of the CM/L certificate requires an operational factory testing laboratory before the preliminary audit. Equipping this internal quality control lab requires ₹10 to ₹14 lakh." },
+      { t: "p", x: "The mandatory lab setup includes a muffle furnace operating to 600 °C to determine fibre content by resin burnout, a digital analytical balance with 0.1 mg accuracy, dial calipers for nominal cross-sectional area measurement, a water bath for moisture absorption, and transverse shear test fixtures. Routine factory production control requires continuous internal verification of resin cure and fibre mass fraction." },
+      { t: "h", x: "Working capital and raw material buffer" },
+      { t: "p", x: "Direct-draw E-CR glass rovings (2,400 to 4,800 tex) cost ₹78 to ₹80 per kg delivered with GST. Structural epoxy resin systems (resin base, hardener, and accelerator) cost ₹240 to ₹280 per kg. At an 80:20 glass-to-resin ratio, unworked raw material input cost sits between ₹104 and ₹108 per kg." },
+      { t: "p", x: "Producing 30 tonnes per month requires 24 tonnes of glass roving and 6 tonnes of formulated resin on site. Suppliers operate on advance payment or 14-day terms, while infrastructure buyers typically take 30 to 45 days of credit. Maintaining a 30-day raw material stock alongside receivables requires ₹35 lakh to ₹45 lakh in liquid working capital." },
+      { t: "h", x: "Total investment and commercial break-even" },
+      { t: "p", x: "Aggregating machinery (₹80 lakh), electrical setup (₹8 lakh), laboratory apparatus (₹12 lakh), shed lease deposit (₹3 lakh), and working capital (₹40 lakh) establishes an initial capital requirement of ₹1.43 crore. Attempting to start below ₹1.2 crore forces compromises on die heating, puller synchronization, or resin quality, causing failures during third-party durability checks. With conversion costs held at ₹14 per kg on an industrial multi-strand line, an operating volume of 35 to 50 tonnes per month achieves commercial break-even within 14 to 18 months of commissioning." },
+    ],
+  },
+  {
     slug: "real-cost-cheap-gfrp-rebar-machines-power-uptime",
     title: "Why cheap GFRP machines become your most expensive investment",
     summary: "A lower machinery invoice feels like a lower break-even point, but higher specific power consumption, scrap rates, and frequent stoppages make cheap pultrusion lines the most expensive way to manufacture composite rebar in India.",
