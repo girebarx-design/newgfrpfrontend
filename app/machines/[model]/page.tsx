@@ -25,22 +25,28 @@ export default async function Model({ params }: { params: Promise<{ model: strin
   const m = MACHINES.find((x) => x.slug === model);
   if (!m) notFound();
 
-  const product = {
+  const machinePage = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: `Composite Tech ${m.name}`,
-    category: "GFRP rebar production line",
+    "@type": "ItemPage",
+    name: `Composite Tech ${m.name} — ${m.role}`,
     description: m.blurb,
     url: `${SITE_URL}/machines/${m.slug}`,
-    brand: { "@type": "Brand", name: "Composite Tech" },
-    additionalProperty: m.specs.map(([v, l]) => ({
-      "@type": "PropertyValue", name: l, value: v,
-    })),
+    mainEntity: {
+      "@type": "Thing",
+      name: `Composite Tech ${m.name}`,
+      description: m.blurb,
+      brand: { "@type": "Brand", name: "Composite Tech" },
+      additionalProperty: m.specs.map(([v, l]) => ({
+        "@type": "PropertyValue",
+        name: l,
+        value: v,
+      })),
+    },
   };
 
   return (
     <>
-      <Jsonld data={product} />
+      <Jsonld data={machinePage} />
       <Jsonld data={breadcrumb([["Home","/"],["Machines","/machines"],[m.name,`/machines/${m.slug}`]])} />
       <Spread
         here="/machines" eyebrow={m.role} title={m.name} answer={m.blurb}
